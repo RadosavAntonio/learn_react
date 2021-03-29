@@ -1,12 +1,12 @@
 import React from 'react'
 
-export const Person = () => {
+export const Person = (a) => {
   return (
     <div>
-      <p onClick={click}>
-        I am {name} and I am {age} years old - {children}
+      <p onClick={a.click}>
+        I am {a.name} and I am {a.age} years old - {a.children}
       </p>
-      <input type="text" onChange={changed} value={name}/>
+      <input type="text" onChange={a.changed} value={a.name}/>
     </div>
   )
 }
