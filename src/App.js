@@ -1,8 +1,20 @@
 import './App.css';
 import { Person } from './components/person';
 import React, { useState } from 'react'
+import { UserInput } from './components/userInput';
+import { UserOutput } from './components/userOutput';
 
 export const App = () => {
+
+  const [userName, setUserName] = useState({
+    username: "superUser"
+  })
+
+  const changeUserName = (e) => {
+    setUserName({
+      username: e.target.value
+    })
+  }
 
   const [personsState, setPersonsState] = useState({
     persons: [
@@ -30,6 +42,11 @@ export const App = () => {
       <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
       <Person name={personsState.persons[1].name} age={personsState.persons[1].age} changed={changeName}>I like boats</Person>
       <Person name={personsState.persons[2].name} age={personsState.persons[2].age} changed={changeName} click={() => changeName('Flaf')}>I like mancare</Person>
+      <p>----------------------------------------</p>
+      <UserInput change={changeUserName}/>
+      <UserOutput username={userName.username} currentName={userName.username}/>
+      <UserOutput username={userName.username} currentName={userName.username}/>
+
     </div>
   );
 }
